@@ -1,0 +1,6 @@
+@import "constants";
+
+@mixin center() {
+  max-width: $max-width;
+  margin: 0 auto;
+}
