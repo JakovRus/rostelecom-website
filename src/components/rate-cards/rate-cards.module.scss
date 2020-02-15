@@ -1,4 +1,10 @@
+@import "mixins";
 .container {
   display: flex;
   justify-content: space-around;
+
+  @include tablet {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }

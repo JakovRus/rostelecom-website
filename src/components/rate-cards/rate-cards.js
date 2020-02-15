@@ -1,6 +1,5 @@
 import React from 'react';
 import {Rate} from '../rate-card/rate-card';
-import {Card} from 'semantic-ui-react';
 import styles from './rate-cards.module.scss';
 
 export function RateCards(props) {
@@ -9,10 +8,10 @@ export function RateCards(props) {
   const rates = getRates(edges);
 
   return (
-    <Card.Group className={styles.container}>
+    <div className={styles.container}>
       {rates}
-    </Card.Group>
-  )
+    </div>
+  );
 }
 
 export const rateTypes = {
