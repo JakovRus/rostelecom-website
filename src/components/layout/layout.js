@@ -20,12 +20,12 @@ const Layout = ({children}) => {
   `);
 
   return (
-    <>
+    <div className={styles.container}>
       <Header siteTitle={data.site.siteMetadata.title}/>
-      <RWContainer className={styles.container}>
+      <RWContainer className={styles.content}>
         {children}
       </RWContainer>
-    </>
+    </div>
   );
 };
 

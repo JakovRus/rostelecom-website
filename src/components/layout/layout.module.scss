@@ -1,3 +1,19 @@
+@import "mixins";
+
 .container {
+  height: 100%;
+  width: 100%;
+
+  background: url("../../images/Artboard6.jpg") no-repeat;
+  background-size: cover;
+
+  @include tablet {
+    height: auto;
+
+    background: url("../../images/Artboard6-90.jpg") no-repeat;
+  }
+}
+
+.content {
   margin-top: 3rem;
 }

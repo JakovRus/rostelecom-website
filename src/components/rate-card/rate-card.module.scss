@@ -9,9 +9,10 @@ $card-unit: 24px;
   margin-right: $card-unit;
   min-width: 295px;
   width: 295px;
-  border-radius: $card-unit / 3;
 
-  box-shadow: 0 6px 15px rgba(0,0,0,.1);
+  border-radius: $card-unit / 3;
+  box-shadow: 0 6px 12px rgba(0,0,0,.3);
+  background-color: #ffffff;
 
   &:last-child {
     margin-right: 0;
