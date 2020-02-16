@@ -16,6 +16,7 @@ const Header = () => {
       <div className={styles.container}>
         <Link to='/' className={styles.logo}/>
         <Navigation items={headerItems}/>
+        <div className={styles.burger} />
       </div>
     </Headroom>
   );

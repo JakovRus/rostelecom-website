@@ -7,4 +7,5 @@
   height: 100%;
 
   @include center;
+  @include desktop-only;
 }

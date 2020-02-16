@@ -1,9 +1,12 @@
+@import "mixins";
+
 $header-height: 4.5rem;
 
 .container {
   position: relative;
   display: flex;
 
+  padding: 0 25px;
   width: 100%;
   height: $header-height;
 
@@ -20,4 +23,52 @@ $header-height: 4.5rem;
   height: $header-height;
 
   background: url("../../images/logo.svg") no-repeat center center;
+
+  &:hover {
+    background: url("../../images/logo.svg") no-repeat center center;
+    opacity: 0.8;
+  }
+
+  @include tablet-lg {
+    position: static;
+  }
+}
+
+
+@mixin stripe() {
+  width: 30px;
+  height: 4px;
+
+  border-radius: 2px;
+  background-color: black;
+}
+
+.burger {
+  position: relative;
+  align-self: center;
+
+  margin-left: auto;
+
+  @include stripe;
+  @include device-only;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+
+    @include stripe;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+
+    @include stripe;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
 }
