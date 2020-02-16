@@ -1,0 +1,45 @@
+@import "mixins";
+
+@mixin stripe() {
+  width: 30px;
+  height: 4px;
+
+  border-radius: 2px;
+  background-color: black;
+}
+
+.burger {
+  position: relative;
+  align-self: center;
+
+  margin-left: auto;
+
+  @include stripe;
+  @include device-only;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+
+    @include stripe;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+
+    @include stripe;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.menuMobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

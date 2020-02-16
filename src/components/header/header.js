@@ -5,18 +5,19 @@ import {Link} from 'gatsby';
 import {Navigation} from '../navigation/navigation';
 
 import styles from './header.module.scss';
+import {BurgerMenu} from '../burger-menu/burger-menu';
 
 const Header = () => {
-  const headerItems = ['Интернет', 'Интернет + тв', 'Видеонаблюдение'];
-
   return (
     <Headroom
       upTolerance={10}
-      downTolerance={10}>
+      downTolerance={10}
+      className={styles.headroom}
+    >
       <div className={styles.container}>
         <Link to='/' className={styles.logo}/>
-        <Navigation items={headerItems}/>
-        <div className={styles.burger} />
+        <Navigation/>
+        <BurgerMenu/>
       </div>
     </Headroom>
   );

@@ -7,15 +7,17 @@ import 'semantic-ui-css/semantic.min.css';
 import '../../styles/clear.scss';
 import styles from './layout.module.scss';
 
-const Layout = ({children}) => {
+import {ModalWrapper} from '../modal-wrapper';
+
+export const Layout = ({children}) => {
   return (
-    <div className={styles.container}>
-      <Header/>
-      <RWContainer className={styles.content}>
-        {children}
-      </RWContainer>
-    </div>
+    <ModalWrapper>
+      <div className={styles.container}>
+        <Header/>
+        <RWContainer className={styles.content}>
+          {children}
+        </RWContainer>
+      </div>
+    </ModalWrapper>
   );
 };
-
-export default Layout;

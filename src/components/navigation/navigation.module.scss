@@ -6,6 +6,9 @@
 
   height: 100%;
 
-  @include center;
+  @include center {
+    padding: 0;
+  }
+
   @include desktop-only;
 }

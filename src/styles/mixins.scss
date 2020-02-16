@@ -1,4 +1,4 @@
-@import "constants";
+@import "rw-constants";
 
 $breakpoint: (
         mobile: 480px,
@@ -11,6 +11,8 @@ $breakpoint: (
   padding: 25px;
   width: 100%;
   max-width: $max-width;
+
+  @content
 }
 
 @mixin tablet() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Layout from '../components/layout/layout';
+import {Layout} from '../components/layout/layout';
 import SEO from '../components/seo';
 import {RateCards, rateTypes} from '../components/rate-cards/rate-cards';
 

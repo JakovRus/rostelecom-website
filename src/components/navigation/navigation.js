@@ -3,9 +3,12 @@ import {NavigationItem} from './navigation-item/navigation-item';
 
 import styles from './navigation.module.scss';
 
-export function Navigation({items}) {
+
+const items = ['Интернет', 'Интернет + тв', 'Видеонаблюдение'];
+
+export function Navigation({className}) {
   return (
-    <nav className={styles.navigation}>
+    <nav className={`${styles.navigation} ${className}`}>
       <NavigationItems items={items}/>
     </nav>
   );
