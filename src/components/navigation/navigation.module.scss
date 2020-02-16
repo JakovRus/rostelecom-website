@@ -1,0 +1,10 @@
+@import "mixins";
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+
+  height: 100%;
+
+  @include center;
+}

@@ -1,23 +1,25 @@
 import React from 'react';
 import Headroom from 'react-headroom';
-import {Menu} from 'semantic-ui-react';
-import {RWContainer} from '../container/container';
+import {Link} from 'gatsby';
 
-const Header = ({siteTitle}) => (
-  <Headroom
-    upTolerance={10}
-    downTolerance={10}>
-    <Menu borderless pointing size="huge">
-      <RWContainer>
-        <Menu.Item>
-          {siteTitle}
-        </Menu.Item>
-        <Menu.Item position="right">
-          Phone number
-        </Menu.Item>
-      </RWContainer>
-    </Menu>
-  </Headroom>
-);
+import {Navigation} from '../navigation/navigation';
+
+import styles from './header.module.scss';
+
+const Header = () => {
+  const headerItems = ['Интернет', 'Интернет + тв', 'Видеонаблюдение'];
+
+  return (
+    <Headroom
+      upTolerance={10}
+      downTolerance={10}>
+      <div className={styles.container}>
+        <Link to='/' className={styles.logo}/>
+        <Navigation items={headerItems}/>
+      </div>
+    </Headroom>
+  );
+};
 
 export default Header;
+
