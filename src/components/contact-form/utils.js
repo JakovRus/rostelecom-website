@@ -1,11 +1,34 @@
+import {useEffect} from 'react';
+
 export const VALID_PHONE_LENGTH = 11;
 
 export function validatePhone(phone) {
   const rawInput = phone.replace(/[ \+()_-]/g, '');
 
-  return rawInput.length === VALID_PHONE_LENGTH;
+  return rawInput.length !== VALID_PHONE_LENGTH;
 }
 
 export function validateName(name) {
-  return !!name;
+  return !name;
+}
+
+export function useValidation(name, phone, invalidState, setInvalid, dirtyState) {
+  useEffect(() => {
+    if(!dirtyState.name) {
+      return;
+    }
+
+    const nameInvalid = validateName(name);
+
+    setInvalid(Object.assign({}, invalidState, {name: nameInvalid}));
+  }, [name]);
+
+  useEffect(() => {
+    if(!dirtyState.phone) {
+      return;
+    }
+
+    const phoneInvalid = validatePhone(phone);
+    setInvalid(Object.assign({}, invalidState, {phone: phoneInvalid}));
+  }, [phone]);
 }
