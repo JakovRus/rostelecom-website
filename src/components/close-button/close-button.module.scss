@@ -1,0 +1,44 @@
+@import "mixins";
+
+@mixin stripe() {
+  width: 30px;
+  height: 4px;
+
+  border-radius: 2px;
+  background-color: black;
+}
+
+@mixin stripePseudo() {
+  content: "";
+  position: absolute;
+}
+
+@mixin closeBtnStripe() {
+  top: 17px;
+  left: 6px;
+}
+
+.closeBtn {
+  position: relative;
+  margin: auto auto 0;
+  width: 45px;
+  height: 45px;
+
+  @include device-only;
+
+  &::before {
+    transform: rotate(45deg);
+
+    @include closeBtnStripe;
+    @include stripePseudo;
+    @include stripe;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+
+    @include closeBtnStripe;
+    @include stripePseudo;
+    @include stripe;
+  }
+}

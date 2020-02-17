@@ -4,22 +4,22 @@ import InputMask from 'react-input-mask';
 import styles from './input.module.scss';
 
 export function RWInput(props) {
-  const {placeholder, ...rest} = props;
+  const {placeholder, containerClass, ...rest} = props;
 
   return (
-    <InputLabel label={placeholder}>
+    <InputLabel label={placeholder} className={containerClass}>
       <input {...rest} className={`${styles.input} ${rest.className}`}/>
     </InputLabel>
   )
 }
 
 export function RWPhoneInput(props) {
-  const {placeholder, ...rest} = props;
+  const {placeholder, containerClass, ...rest} = props;
   const mask = "+7 (999) 999-99-99";
 
   return (
-    <InputLabel label={placeholder}>
-      <InputMask mask={mask} alwaysShowMask {...rest}
+    <InputLabel label={placeholder} className={containerClass}>
+      <InputMask mask={mask} alwaysShowMask {...rest} type='tel'
                  className={`${styles.input} ${rest.className}`}/>
     </InputLabel>
   )
@@ -27,8 +27,8 @@ export function RWPhoneInput(props) {
 
 function InputLabel(props) {
   return (
-    <label className={styles.label}>
-      {props.label}
+    <label className={`${styles.container} ${props.className}`}>
+      <span className={styles.label}>{props.label}</span>
       {props.children}
     </label>
   )

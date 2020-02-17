@@ -6,7 +6,7 @@ import {Navigation} from '../navigation/navigation';
 export function BurgerMenu() {
   const context = useContext(ModalContext);
   const show = () => {
-    context.open(<MobileMenu close={context.close}/>);
+    context.open(<MobileMenu/>);
   };
 
   return (
@@ -15,11 +15,10 @@ export function BurgerMenu() {
   );
 }
 
-function MobileMenu({close}) {
- return (
-   <div className={styles.menuContainer}>
-     <Navigation className={styles.menuMobile}/>
-     <div className={styles.closeBtn} onClick={close}/>
-   </div>
- )
+function MobileMenu() {
+  return (
+    <div className={styles.menuContainer}>
+      <Navigation className={styles.menuMobile}/>
+    </div>
+  )
 }

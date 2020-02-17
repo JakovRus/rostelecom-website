@@ -1,4 +1,4 @@
-.label {
+.container {
   display: flex;
   flex-direction: column;
 
@@ -7,11 +7,16 @@
 }
 
 .input {
-  margin-top: 0.5rem;
+  box-sizing: border-box;
+  margin-top: .5rem;
+  padding: 1.25rem .5rem;
   height: 2rem;
 
   border: 1px solid black;
   border-radius: 4px;
   background-color: #FFFFFF;
+}
 
+.label {
+  font-weight: 700;
 }

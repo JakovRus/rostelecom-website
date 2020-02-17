@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import styles from './rate-card.module.scss';
 import {RWButton} from '../button/button';
+import {ModalContext} from "../../contexts/modal";
+import {ContactForm} from "../contact-form/contact-form";
 
 export function Rate(props) {
   const {price, name, description} = props;
+  const context = useContext(ModalContext);
+  const onClick = () => {
+    context.open(
+      <ContactForm />
+    )
+  };
 
   return (
     <div className={styles.card}>
@@ -17,7 +25,7 @@ export function Rate(props) {
       <ul>
         <RateDescription description={description}/>
       </ul>
-      <RWButton className={styles.button}>
+      <RWButton className={styles.button} onClick={onClick}>
         Подключить
       </RWButton>
     </div>
