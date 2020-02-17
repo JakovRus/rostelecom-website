@@ -4,7 +4,7 @@
   padding: 25px;
 
   width: 100%;
-  max-width: 420px;
+  max-width: 720px;
 }
 
 .form-element {
@@ -13,4 +13,8 @@
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+.success-message {
+  font-size: 1.5rem;
 }
