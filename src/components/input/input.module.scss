@@ -1,3 +1,5 @@
+$danger-color: #f26868;
+
 .container {
   display: flex;
   flex-direction: column;
@@ -17,6 +19,15 @@
   background-color: #FFFFFF;
 }
 
+.input-invalid {
+  border: 1px solid $danger-color;
+  color: $danger-color;
+}
+
 .label {
   font-weight: 700;
+}
+
+.label-invalid {
+  color: $danger-color;
 }
