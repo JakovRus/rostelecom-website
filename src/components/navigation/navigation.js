@@ -8,17 +8,22 @@ const items = [
   {
     title: 'Интернет',
     to: '/internet/',
-  }, {
+  },
+  {
     title: 'Интернет + ТВ',
     to: '/',
-  }, {
+  },
+  {
     title: 'Видеонаблюдение',
     to: '/cctv/'
-  }];
+  },
+];
 
 export function Navigation({className}) {
   return (
     <nav className={`${styles.navigation} ${className}`}>
+      <NavigationItem to='/' text='Главная'
+                      className={styles.mainLink}/>
       <NavigationItems items={items}/>
     </nav>
   );

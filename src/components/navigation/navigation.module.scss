@@ -12,3 +12,7 @@
 
   @include desktop-only;
 }
+
+.mainLink {
+  @include device-only;
+}
