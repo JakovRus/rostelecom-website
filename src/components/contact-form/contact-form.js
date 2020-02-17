@@ -3,22 +3,27 @@ import {RWInput, RWPhoneInput} from "../input/input";
 import {RWButton} from "../button/button";
 
 import styles from './contact-from.module.scss';
-import {useValidation} from "./utils";
+import {useValidation, validate} from "./utils";
+
+const initialState = {
+  name: false,
+  phone: false,
+};
 
 export function ContactForm() {
   const [name, _setName] = useState('');
   const [phone, _setPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [invalidState, setInvalid] = useState({
-    phone: false,
-    name: false,
-  });
-  const [dirtyState, setDirty] = useState({
-    name: false,
-    phone: false,
-  });
+  const [invalidState, setInvalid] = useState(initialState);
+  const [dirtyState, setDirty] = useState(initialState);
 
-  useValidation(name, phone, invalidState, setInvalid, dirtyState);
+  const isInvalid = useValidation(
+    name,
+    phone,
+    invalidState,
+    setInvalid,
+    dirtyState
+  );
 
   const setName = (event) => {
     setDirty(Object.assign({}, dirtyState, {name: true}));
@@ -35,6 +40,11 @@ export function ContactForm() {
   };
 
   const submit = () => {
+    const invalid = validate(name, phone, setInvalid, dirtyState, setDirty);
+    if(invalid) {
+      return;
+    }
+
     setSubmitted(true);
   };
 
@@ -44,7 +54,9 @@ export function ContactForm() {
         !submitted ? (
           <Form name={name} setName={setName}
                 phone={phone} setPhone={setPhone}
-                submit={submit} invalidState={invalidState}/>
+                submit={submit} invalidState={invalidState}
+                invalid={isInvalid}
+          />
         ) : (
           <span className={styles.successMessage}>
             Ваша заявка принята! Наш сотрудник скоро перезвонит Вам.
@@ -66,7 +78,9 @@ function Form(props) {
                     containerClass={styles.formElement}
                     invalid={props.invalidState.phone}/>
       <RWButton className={styles.formElement}
-                onClick={props.submit}>
+                onClick={props.submit}
+                disabled={props.invalid}
+      >
         Подключить
       </RWButton>
     </>

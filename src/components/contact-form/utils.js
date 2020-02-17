@@ -31,4 +31,26 @@ export function useValidation(name, phone, invalidState, setInvalid, dirtyState)
     const phoneInvalid = validatePhone(phone);
     setInvalid(Object.assign({}, invalidState, {phone: phoneInvalid}));
   }, [phone]);
+
+  return invalidState.name || invalidState.phone;
+}
+
+export function validate(
+  name,
+  phone,
+  setInvalid,
+  dirtyState,
+  setDirty
+) {
+  const nameInvalid = validateName(name);
+  const phoneInvalid = validatePhone(phone);
+
+  setInvalid({
+    name: nameInvalid,
+    phone: phoneInvalid,
+  });
+
+  setDirty({name: true, phone: true});
+
+  return nameInvalid || phoneInvalid;
 }
