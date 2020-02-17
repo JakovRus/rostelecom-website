@@ -12,7 +12,7 @@ export function Modal({children, visible, close}) {
 
   return (
     <div className={className}>
-      <div onClick={close} className={styles.content}>
+      <div className={styles.content}>
         <div onClick={preventClose}>
         {children}
         </div>

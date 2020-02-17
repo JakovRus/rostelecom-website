@@ -42,5 +42,6 @@ $breakpoint: (
 @mixin device-only() {
   @media (min-width: map_get($breakpoint, tablet)) {
     display: none;
+    @content
   }
 }

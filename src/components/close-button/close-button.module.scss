@@ -20,11 +20,22 @@
 
 .closeBtn {
   position: relative;
-  margin: auto auto 0;
   width: 45px;
   height: 45px;
 
-  @include device-only;
+  cursor: pointer;
+
+  @include tablet {
+    margin: auto auto 0;
+  };
+
+  @include device-only {
+    position: absolute;
+    display: block;
+
+    right: 30px;
+    top: 35px;
+  }
 
   &::before {
     transform: rotate(45deg);
