@@ -16,8 +16,8 @@ export function RateCards(props) {
 
 export const rateTypes = {
   INTERNET_AND_TV: 'allRatesInternetAndTvJson',
-  INTERNET: 'INTERNET',
-  CCTV: 'CCTV',
+  INTERNET: 'allRatesInternetJson',
+  CCTV: 'allRatesCctvJson',
 };
 
 function getRates(edges) {
@@ -26,7 +26,8 @@ function getRates(edges) {
     return (
       <Rate name={node.name}
             description={node.description}
-            price={node.price}/>
+            price={node.price}
+            key={node.id}/>
     );
   });
 }

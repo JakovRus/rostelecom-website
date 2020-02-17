@@ -4,20 +4,20 @@ import {Layout} from '../components/layout/layout';
 import SEO from '../components/seo';
 import {RateCards, rateTypes} from '../components/rate-cards/rate-cards';
 
-const IndexPage = ({data}) => {
+const InternetPage = ({data}) => {
   return (
     <Layout>
       <SEO title="Home"/>
-      <RateCards data={data} type={rateTypes.INTERNET_AND_TV}/>
+      <RateCards data={data} type={rateTypes.INTERNET}/>
     </Layout>
   );
 };
 
-export default IndexPage;
+export default InternetPage;
 
 export const query = graphql`
 {
-  allRatesInternetAndTvJson {
+  allRatesInternetJson {
     edges {
       node {
         description

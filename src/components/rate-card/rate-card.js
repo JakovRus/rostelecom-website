@@ -25,5 +25,5 @@ export function Rate(props) {
 }
 
 function RateDescription({description}) {
-  return description.map(item => <li>{item}</li>);
+  return description.map(item => <li key={item}>{item}</li>);
 }

@@ -4,7 +4,17 @@ import {NavigationItem} from './navigation-item/navigation-item';
 import styles from './navigation.module.scss';
 
 
-const items = ['Интернет', 'Интернет + тв', 'Видеонаблюдение'];
+const items = [
+  {
+    title: 'Интернет',
+    to: '/internet/',
+  }, {
+    title: 'Интернет + ТВ',
+    to: '/',
+  }, {
+    title: 'Видеонаблюдение',
+    to: '/cctv/'
+  }];
 
 export function Navigation({className}) {
   return (
@@ -15,5 +25,5 @@ export function Navigation({className}) {
 }
 
 function NavigationItems({items}) {
-  return items.map(item => <NavigationItem to={item} text={item} key={item}/>);
+  return items.map(item => <NavigationItem to={item.to} text={item.title} key={item.title + item.to}/>);
 }

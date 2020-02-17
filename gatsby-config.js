@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Ростелеком Самара`,
     phoneNumbers: [
       '89377960956'
     ],
