@@ -1,0 +1,53 @@
+@import "mixins";
+
+.footer {
+  width: 100%;
+  min-height: 6rem;
+
+  background-color: #ffffff;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.text {
+  flex: 1 1 50%;
+  margin: 0;
+
+  font-size: 1.2rem;
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.phoneNumber {
+  font-size: 1.5rem;
+
+  @include mobile {
+    margin-top: 0.5rem;
+  }
+}
+
+.phoneNumbers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin-left: 25px;
+  padding: 0.5rem 0;
+  height: 100%;
+
+  @include mobile {
+    margin-left: 0;
+  }
+}

@@ -8,6 +8,7 @@ import '../../styles/clear.scss';
 import styles from './layout.module.scss';
 
 import {ModalWrapper} from '../modal-wrapper';
+import {Footer} from "../footer/footer";
 
 export const Layout = ({children}) => {
   return (
@@ -17,6 +18,7 @@ export const Layout = ({children}) => {
         <RWContainer className={styles.content}>
           {children}
         </RWContainer>
+        <Footer />
       </div>
     </ModalWrapper>
   );
