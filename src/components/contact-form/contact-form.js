@@ -49,7 +49,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className={styles.form}>
+    <div className={styles.container}>
       {
         !submitted ? (
           <Form name={name} setName={setName}
@@ -69,7 +69,7 @@ export function ContactForm() {
 
 function Form(props) {
   return (
-    <>
+    <div className={styles.form}>
       <RWInput value={props.name} onChange={props.setName}
                placeholder='Имя' containerClass={styles.formElement}
                invalid={props.invalidState.name}/>
@@ -83,6 +83,6 @@ function Form(props) {
       >
         Подключить
       </RWButton>
-    </>
+    </div>
   )
 }
