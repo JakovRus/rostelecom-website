@@ -1,28 +1,38 @@
 import {useEffect} from 'react';
-import {debounce} from "debounce";
+import {Delayer} from './delayer';
 
 export const VALID_PHONE_LENGTH = 11;
-const DEBOUNCE_DURATION = 500;
 
-export function validatePhone(phone) {
+const nameDelayer = new Delayer();
+const phoneDelayer = new Delayer();
+
+export function isPhoneInvalid(phone) {
   const rawInput = phone.replace(/[ \+()_-]/g, '');
 
   return rawInput.length !== VALID_PHONE_LENGTH;
 }
 
-export function validateName(name) {
+export function isNameInvalid(name) {
   return !name;
 }
 
 export function useValidation(name, phone, invalidState, setInvalid, dirtyState) {
+  const validateName = () => {
+    const nameInvalid = isNameInvalid(name);
+    setInvalid(Object.assign({}, invalidState, {name: nameInvalid}));
+  };
+
+  const validatePhone = () => {
+    const phoneInvalid = isPhoneInvalid(phone);
+    setInvalid(Object.assign({}, invalidState, {phone: phoneInvalid}));
+  };
+
   useEffect(() => {
     if (!dirtyState.name) {
       return;
     }
 
-    const nameInvalid = validateName(name);
-
-    setInvalid(Object.assign({}, invalidState, {name: nameInvalid}));
+    nameDelayer.call(validateName);
   }, [name]);
 
   useEffect(() => {
@@ -30,8 +40,7 @@ export function useValidation(name, phone, invalidState, setInvalid, dirtyState)
       return;
     }
 
-    const phoneInvalid = validatePhone(phone);
-    setInvalid(Object.assign({}, invalidState, {phone: phoneInvalid}));
+    phoneDelayer.call(validatePhone);
   }, [phone]);
 
   return invalidState.name || invalidState.phone;
@@ -44,8 +53,8 @@ export function validate(
   dirtyState,
   setDirty
 ) {
-  const nameInvalid = validateName(name);
-  const phoneInvalid = validatePhone(phone);
+  const nameInvalid = isNameInvalid(name);
+  const phoneInvalid = isPhoneInvalid(phone);
 
   setInvalid({
     name: nameInvalid,
