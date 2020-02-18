@@ -7,7 +7,7 @@ import {Navigation} from '../navigation/navigation';
 import styles from './header.module.scss';
 import {BurgerMenu} from '../burger-menu/burger-menu';
 
-const Header = () => {
+const Header = ({pathname}) => {
   return (
     <Headroom
       upTolerance={10}
@@ -16,7 +16,7 @@ const Header = () => {
     >
       <div className={styles.container}>
         <Link to='/' className={styles.logo}/>
-        <Navigation/>
+        <Navigation pathname={pathname}/>
         <BurgerMenu/>
       </div>
     </Headroom>

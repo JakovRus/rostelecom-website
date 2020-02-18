@@ -4,9 +4,9 @@ import {Layout} from '../components/layout/layout';
 import SEO from '../components/seo';
 import {RateCards, rateTypes} from '../components/rate-cards/rate-cards';
 
-const CctvPage = ({data}) => {
+const CctvPage = ({data, location}) => {
   return (
-    <Layout>
+    <Layout pathname={location.pathname}>
       <SEO title="Home"/>
       <RateCards data={data} type={rateTypes.CCTV}/>
     </Layout>
