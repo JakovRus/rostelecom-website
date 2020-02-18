@@ -7,7 +7,7 @@ const nameDelayer = new Delayer();
 const phoneDelayer = new Delayer();
 
 export function isPhoneInvalid(phone) {
-  const rawInput = phone.replace(/[ \+()_-]/g, '');
+  const rawInput = phone.replace(/[ +()_-]/g, '');
 
   return rawInput.length !== VALID_PHONE_LENGTH;
 }

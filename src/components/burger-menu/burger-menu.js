@@ -10,8 +10,9 @@ export function BurgerMenu() {
   };
 
   return (
-    <div className={styles.burger}
-         onClick={show}/>
+    <div className={styles.burgerContainer} onClick={show}>
+      <div className={styles.burger}/>
+    </div>
   );
 }
 

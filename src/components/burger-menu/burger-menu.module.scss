@@ -12,16 +12,23 @@
   content: "";
   position: absolute;
 }
+.burger-container {
+  display: flex;
+  align-self: center;
+  align-items: center;
+
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
+  @include device-only;
+}
 
 .burger {
   position: relative;
-  align-self: center;
-
-  margin-left: auto;
 
   @include stripe;
-  @include device-only;
-
   &::before {
     top: -10px;
 
