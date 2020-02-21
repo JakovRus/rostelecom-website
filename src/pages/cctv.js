@@ -7,7 +7,10 @@ import {RateCards, rateTypes} from '../components/rate-cards/rate-cards';
 const CctvPage = ({data, location}) => {
   return (
     <Layout pathname={location.pathname}>
-      <SEO title="Home"/>
+      <SEO title="Видеонаблюдение" keywords={[
+        "Ростелеком Самара",
+        "Видеонаблюдение",
+      ]}/>
       <RateCards data={data} type={rateTypes.CCTV}/>
     </Layout>
   );

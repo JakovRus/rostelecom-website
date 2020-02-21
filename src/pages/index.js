@@ -8,7 +8,11 @@ const IndexPage = ({data, location}) => {
 
   return (
     <Layout pathname={location.pathname}>
-      <SEO title="Home"/>
+      <SEO title="Главная" keywords={[
+        "Ростелеком Самара",
+        "Тарифы",
+        "Интернет и телевидение Самара",
+      ]}/>
       <RateCards data={data} type={rateTypes.INTERNET_AND_TV}/>
     </Layout>
   );

@@ -4,8 +4,8 @@ module.exports = {
     phoneNumbers: [
       '89377960956'
     ],
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Интернет и ТВ для дома. Wi—Fi. Мобильная и городская связь. Оставьте заявку на сайте. Wink — Смотрите ТВ на любых устройствах: Smart TV, смартфоны, планшеты. Тарифы для всей семьи. Интернет для дома.`,
+    author: `Ростелеком Самара`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

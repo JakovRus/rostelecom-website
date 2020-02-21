@@ -7,7 +7,10 @@ import {RateCards, rateTypes} from '../components/rate-cards/rate-cards';
 const InternetPage = ({data, location}) => {
   return (
     <Layout pathname={location.pathname}>
-      <SEO title="Home"/>
+      <SEO title="Интернет" keywords={[
+        "Ростелеком Самара",
+        "Тарифы интернет",
+      ]}/>
       <RateCards data={data} type={rateTypes.INTERNET}/>
     </Layout>
   );
