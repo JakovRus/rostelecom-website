@@ -4,6 +4,8 @@ import {RWButton} from "../button/button";
 
 import styles from './contact-from.module.scss';
 import {useValidation, validate} from "./utils";
+import {useRateContext} from "./use-rate-context";
+import {sendInfo} from "./send-info";
 
 const initialState = {
   name: false,
@@ -17,6 +19,8 @@ export function ContactForm() {
   const [invalidState, setInvalid] = useState(initialState);
   const [dirtyState, setDirty] = useState(initialState);
 
+  const rate = useRateContext();
+
   const isInvalid = useValidation(
     name,
     phone,
@@ -24,6 +28,14 @@ export function ContactForm() {
     setInvalid,
     dirtyState
   );
+
+  const constructBody = () => {
+    return {
+      ...rate.getRate(),
+      name,
+      phone,
+    }
+  };
 
   const setName = (event) => {
     setDirty(Object.assign({}, dirtyState, {name: true}));
@@ -45,7 +57,10 @@ export function ContactForm() {
       return;
     }
 
-    setSubmitted(true);
+    sendInfo(constructBody())
+      .then(() => {
+        setSubmitted(true);
+      });
   };
 
   return (

@@ -4,12 +4,17 @@ import styles from './rate-card.module.scss';
 import {RWButton} from '../button/button';
 import {ModalContext} from "../../contexts/modal";
 import {ContactForm} from "../contact-form/contact-form";
+import {RateContext} from "../../contexts/rate";
 
 export function Rate(props) {
   const {price, name, description} = props;
-  const context = useContext(ModalContext);
+  const modalContext = useContext(ModalContext);
+  const rateContext = useContext(RateContext);
+
   const onClick = () => {
-    context.open(
+    rateContext.rate.setRate({rateName: name, price, description});
+
+    modalContext.open(
       <ContactForm />
     )
   };
