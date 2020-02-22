@@ -71,24 +71,26 @@ export function ContactForm() {
   };
 
   return (
-    <div className={styles.container}>
-      {
-        !submitted ? (
-          <Form name={name} setName={setName}
-                phone={phone} setPhone={setPhone}
-                submit={submit} invalidState={invalidState}
-                invalid={isInvalid}
-          />
-        ) : (
-          <span className={styles.successMessage}>
-            Ваша заявка принята! Наш сотрудник скоро перезвонит Вам.
-          </span>
-        )
-      }
+    <>
+      <div className={styles.container}>
+        {
+          !submitted ? (
+            <Form name={name} setName={setName}
+                  phone={phone} setPhone={setPhone}
+                  submit={submit} invalidState={invalidState}
+                  invalid={isInvalid}
+            />
+          ) : (
+            <span className={styles.successMessage}>
+              Ваша заявка принята! Наш сотрудник скоро перезвонит Вам.
+            </span>
+          )
+        }
+      </div>
       {
         loaderVisible && <Loader className={styles.loader}/>
       }
-    </div>
+    </>
   );
 }
 
