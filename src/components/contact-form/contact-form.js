@@ -6,6 +6,7 @@ import styles from './contact-from.module.scss';
 import {useValidation, validate} from "./utils";
 import {useRateContext} from "./use-rate-context";
 import {sendInfo} from "./send-info";
+import {Loader} from "../loader/loader";
 
 const initialState = {
   name: false,
@@ -18,6 +19,7 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [invalidState, setInvalid] = useState(initialState);
   const [dirtyState, setDirty] = useState(initialState);
+  const [loaderVisible, setLoaderVisible] = useState(false);
 
   const rate = useRateContext();
 
@@ -57,9 +59,14 @@ export function ContactForm() {
       return;
     }
 
+    setLoaderVisible(true);
+
     sendInfo(constructBody())
       .then(() => {
         setSubmitted(true);
+      })
+      .finally(() => {
+        setLoaderVisible(false);
       });
   };
 
@@ -77,6 +84,9 @@ export function ContactForm() {
             Ваша заявка принята! Наш сотрудник скоро перезвонит Вам.
           </span>
         )
+      }
+      {
+        loaderVisible && <Loader className={styles.loader}/>
       }
     </div>
   );
